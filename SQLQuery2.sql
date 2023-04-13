@@ -20,13 +20,7 @@ select * from Teachers
 
 
 --first query
-select CAST(MAX(src.age_avg) as integer) as "Highest age"
-from (
-  select [Age], AVG([Age]) as age_avg
-  from Teachers
-  group by [Age]
-) src
-
+select * from Teachers where [Age]> (select AVG([Age]) from Teachers)
 
 
 --second query
@@ -38,5 +32,8 @@ select * from Teachers where [Email] like '%mail.ru'
 
 --fourth query
 select * from Teachers where [Name] like 'F%'
+
+
+use Course
 
 
